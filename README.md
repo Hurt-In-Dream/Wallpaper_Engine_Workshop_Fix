@@ -2,7 +2,7 @@
 
 一个轻量级的工具，用于清理 Wallpaper Engine 本地残留的未订阅 Workshop 物品。
 
-![App Screenshot](https://via.placeholder.com/800x500?text=Application+Screenshot)
+![App Screenshot](Screenshot.png)
 
 ## 🌟 功能特点
 
