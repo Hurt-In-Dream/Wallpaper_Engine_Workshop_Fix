@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Engine Workshop Fix</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Wallpaper Engine 订阅清理工具</h1>
+        </header>
+
+        <div class="config-section">
+            <div class="input-group">
+                <label>Steam 登录状态</label>
+                <div class="path-input-wrapper">
+                    <button id="loginBtn" class="secondary-btn">登录 Steam (解决隐私/API限制)</button>
+                    <span id="loginStatus" style="margin-left: 10px; align-self: center; color: #aaa;">未登录</span>
+                </div>
+            </div>
+
+            <div class="input-group" style="display:none">
+                <label for="apiKey">Steam API Key (已弃用)</label>
+                <input type="password" id="apiKey" placeholder="输入您的 Steam Web API Key">
+            </div>
+
+            <div class="input-group">
+                <label for="steamId">Steam ID (64位)</label>
+                <input type="text" id="steamId" placeholder="例如: 76561198xxxxxxxxx">
+                <a href="https://steamid.io/" target="_blank" class="help-link">查询 ID</a>
+            </div>
+
+            <div class="input-group">
+                <label for="workshopPath">Workshop 路径</label>
+                <div class="path-input-wrapper">
+                    <input type="text" id="workshopPath" placeholder="选择 content/431960 文件夹" readonly>
+                    <button id="selectPathBtn">选择文件夹</button>
+                </div>
+            </div>
+            <button id="scanBtn" class="primary-btn">扫描并对比</button>
+        </div>
+
+        <div class="results-section">
+            <div class="results-header">
+                <h2>未订阅的本地文件</h2>
+                <div class="stats">
+                    <span id="itemCount">0 项</span> |
+                    <span id="totalSize">0 MB</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox" id="selectAll"></th>
+                            <th>ID</th>
+                            <th>名称</th>
+                            <th>大小</th>
+                            <th>路径</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+                <div id="emptyState" class="empty-state">
+                    暂无数据，请点击扫描
+                </div>
+            </div>
+
+            <div class="actions-footer">
+                <div class="selection-stats">
+                    已选择: <span id="selectedCount">0</span> 项 (<span id="selectedSize">0 MB</span>)
+                </div>
+                <button id="deleteBtn" class="danger-btn" disabled>删除选中项</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="overlay hidden">
+        <div class="spinner"></div>
+        <p id="loadingText">正在处理...</p>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>

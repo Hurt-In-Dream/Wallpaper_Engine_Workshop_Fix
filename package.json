@@ -1,0 +1,41 @@
+{
+    "name": "wallpaper-engine-workshop-fix",
+    "version": "1.0.0",
+    "description": "A tool to clean up unsubscribed Wallpaper Engine workshop items.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "keywords": [
+        "wallpaper-engine",
+        "steam",
+        "workshop",
+        "cleaner"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^28.0.0",
+        "electron-builder": "^24.9.1"
+    },
+    "dependencies": {
+        "electron-store": "^8.1.0"
+    },
+    "build": {
+        "appId": "com.workshop.fix",
+        "productName": "Wallpaper Engine Workshop Fix",
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": "portable",
+            "icon": "assets/icon.png"
+        },
+        "files": [
+            "**/*",
+            "!node_modules/*/{test,docs,examples}/*",
+            "!dist/*"
+        ]
+    }
+}
