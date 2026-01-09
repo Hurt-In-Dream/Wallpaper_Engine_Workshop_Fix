@@ -2,7 +2,21 @@
 
 一个轻量级的工具，用于清理 Wallpaper Engine 本地残留的未订阅 Workshop 物品。
 
+> 🤖 **Note**: 本项目核心代码由 Google DeepMind 的 **Gemini 3 Pro** 模型辅助编写。
+
 ![App Screenshot](Screenshot.png)
+
+## ⚠️ 温馨提示 (Security Warning)
+
+**账号安全至关重要！**
+
+请千万不要在任何来源不明、未开源或未经验证的第三方程序中输入您的 Steam 账号密码，以免遭遇盗号风险。
+
+*   本工具已完全**开源**，您可以随时审查源代码。
+*   本工具的登录操作均在本地的 Electron 安全窗口（BrowserWindow）中进行，直接与 Steam 官方服务器通信。
+*   本工具**绝不会**收集、上传或转发您的账号、密码或 Cookie 到任何第三方服务器。
+
+建议您仅从 GitHub 的 Releases 页面下载作者发布的版本，或自行下载源码编译使用。
 
 ## 🌟 功能特点
 
@@ -63,4 +77,4 @@ npm run build
 
 ## 📄 License
 
-MIT
+Distributed under the MIT License. See `LICENSE` for more information.
