@@ -6,6 +6,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     loadConfig: () => ipcRenderer.invoke('load-config'),
     scanLocalFiles: (path) => ipcRenderer.invoke('scan-local-files', path),
     deleteFiles: (paths) => ipcRenderer.invoke('delete-files', paths),
-    fetchSubscriptions: (apiKey, steamId) => ipcRenderer.invoke('fetch-subscriptions', apiKey, steamId),
+    fetchSubscriptions: (apiKey, steamId, appId) => ipcRenderer.invoke('fetch-subscriptions', apiKey, steamId, appId),
     loginSteam: () => ipcRenderer.invoke('login-steam')
 });

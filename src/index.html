@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallpaper Engine Workshop Fix</title>
+    <title>Steam Workshop Fix Tool</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Wallpaper Engine 订阅清理工具</h1>
+            <h1>Steam 创意工坊订阅清理工具</h1>
         </header>
 
         <div class="config-section">
@@ -35,9 +35,15 @@
             </div>
 
             <div class="input-group">
+                <label for="appId">游戏 App ID</label>
+                <input type="text" id="appId" placeholder="例如: 431960 (Wallpaper Engine)" value="431960">
+                <a href="https://steamdb.info/" target="_blank" class="help-link">查询 App ID</a>
+            </div>
+
+            <div class="input-group">
                 <label for="workshopPath">Workshop 路径</label>
                 <div class="path-input-wrapper">
-                    <input type="text" id="workshopPath" placeholder="选择 content/431960 文件夹" readonly>
+                    <input type="text" id="workshopPath" placeholder="选择 workshop/content/{AppID} 文件夹" readonly>
                     <button id="selectPathBtn">选择文件夹</button>
                 </div>
             </div>

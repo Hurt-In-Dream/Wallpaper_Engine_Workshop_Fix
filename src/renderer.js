@@ -1,5 +1,6 @@
 const apiKeyInput = document.getElementById('apiKey');
 const steamIdInput = document.getElementById('steamId');
+const appIdInput = document.getElementById('appId');
 const workshopPathInput = document.getElementById('workshopPath');
 const loginBtn = document.getElementById('loginBtn');
 const loginStatus = document.getElementById('loginStatus');
@@ -24,6 +25,7 @@ async function loadConfig() {
     const config = await window.electronAPI.loadConfig();
     if (config.apiKey) apiKeyInput.value = config.apiKey;
     if (config.steamId) steamIdInput.value = config.steamId;
+    if (config.appId) appIdInput.value = config.appId;
     if (config.workshopPath) workshopPathInput.value = config.workshopPath;
 }
 
@@ -34,6 +36,7 @@ async function saveConfig() {
     await window.electronAPI.saveConfig({
         apiKey: apiKeyInput.value.trim(),
         steamId: steamIdInput.value.trim(),
+        appId: appIdInput.value.trim(),
         workshopPath: workshopPathInput.value.trim()
     });
 }
@@ -69,10 +72,11 @@ selectPathBtn.addEventListener('click', async () => {
 scanBtn.addEventListener('click', async () => {
     // const apiKey = apiKeyInput.value.trim(); // Deprecated
     const steamId = steamIdInput.value.trim();
+    const appId = appIdInput.value.trim();
     const path = workshopPathInput.value.trim();
 
-    if (!steamId || !path) {
-        alert('请填写 Steam ID 和 Workshop 路径');
+    if (!steamId || !appId || !path) {
+        alert('请填写 Steam ID、App ID 和 Workshop 路径');
         return;
     }
 
@@ -87,8 +91,8 @@ scanBtn.addEventListener('click', async () => {
     saveConfig();
 
     try {
-        // 1. Fetch Subscriptions (API Key is ignored now)
-        const subscriptionIds = await window.electronAPI.fetchSubscriptions('', steamId);
+        // 1. Fetch Subscriptions (API Key is ignored now, appId is used)
+        const subscriptionIds = await window.electronAPI.fetchSubscriptions('', steamId, appId);
         console.log(`Fetched ${subscriptionIds.length} subscriptions`);
 
         // 2. Scan Local Files

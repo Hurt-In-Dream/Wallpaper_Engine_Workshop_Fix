@@ -194,11 +194,14 @@ ipcMain.handle('login-steam', async () => {
 
 
 // 5. Fetch Subscriptions (BrowserWindow Scraping)
-ipcMain.handle('fetch-subscriptions', async (event, apiKey, steamId) => {
+ipcMain.handle('fetch-subscriptions', async (event, apiKey, steamId, appId) => {
     const subscriptions = new Set();
     let page = 1;
     let hasMore = true;
     const MAX_PAGES = 100;
+
+    // Default to Wallpaper Engine if no appId provided
+    const targetAppId = appId || '431960';
 
     // Determine profile URL type
     const isNumericId = /^\d+$/.test(steamId);
@@ -218,8 +221,8 @@ ipcMain.handle('fetch-subscriptions', async (event, apiKey, steamId) => {
 
     try {
         while (hasMore && page <= MAX_PAGES) {
-            console.log(`[Scraper] Fetching page ${page}...`);
-            const url = `https://steamcommunity.com/${profilePath}/myworkshopfiles/?appid=431960&browsefilter=mysubscriptions&numperpage=30&p=${page}`;
+            console.log(`[Scraper] Fetching page ${page} for appId ${targetAppId}...`);
+            const url = `https://steamcommunity.com/${profilePath}/myworkshopfiles/?appid=${targetAppId}&browsefilter=mysubscriptions&numperpage=30&p=${page}`;
 
             await scrapeWindow.loadURL(url);
 

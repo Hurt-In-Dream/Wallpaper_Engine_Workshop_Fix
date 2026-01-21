@@ -1,6 +1,6 @@
-# Wallpaper Engine Workshop Fix Tool
+# Steam Workshop Fix Tool
 
-一个轻量级的工具，用于清理 Wallpaper Engine 本地残留的未订阅 Workshop 物品。
+一个轻量级的工具，用于清理 Steam 创意工坊本地残留的未订阅物品。**支持所有拥有创意工坊的游戏**（如 Wallpaper Engine、CS2、Cities: Skylines 等）。
 
 > 🤖 **Note**: 本项目核心代码由 Google DeepMind 的 **Gemini 3 Pro** 模型辅助编写。
 
@@ -20,6 +20,7 @@
 
 ## 🌟 功能特点
 
+*   **多游戏支持**：支持所有拥有创意工坊的 Steam 游戏，只需输入对应的 App ID。
 *   **智能对比**：自动获取您的 Steam 订阅列表，并与本地文件进行对比。
 *   **无需 API Key**：内置 Steam 登录功能，直接通过安全窗口登录，无需繁琐申请 Web API Key。
 *   **隐私安全**：登录过程在本地完成，Cookie 仅用于获取订阅列表，不会上传到任何服务器。
@@ -29,13 +30,27 @@
 ## 🚀 使用指南
 
 1.  **启动应用**。
-2.  **登录 Steam**：点击界面上的“登录 Steam”按钮，在弹出的窗口中登录您的账号。
+2.  **登录 Steam**：点击界面上的"登录 Steam"按钮，在弹出的窗口中登录您的账号。
     *   *注意：这是为了获取您的订阅列表，登录状态仅保存在本地会话中。*
-3.  **设置路径**：
-    *   **Steam ID**：输入您的 64 位 Steam ID（通常登录后会自动识别，如未识别请手动输入）。
-    *   **Workshop 路径**：选择 Wallpaper Engine 的下载目录，通常位于 `Steam\steamapps\workshop\content\431960`。
-4.  **扫描**：点击“扫描并对比”按钮。
-5.  **清理**：勾选列表中检测到的未订阅项目，点击“删除选中项”即可。
+3.  **设置参数**：
+    *   **Steam ID**：输入您的 64 位 Steam ID。
+    *   **游戏 App ID**：输入目标游戏的 Steam App ID（见下表）。
+    *   **Workshop 路径**：选择对应游戏的 Workshop 下载目录，通常位于 `Steam\steamapps\workshop\content\{App ID}`。
+4.  **扫描**：点击"扫描并对比"按钮。
+5.  **清理**：勾选列表中检测到的未订阅项目，点击"删除选中项"即可。
+
+### 常见游戏 App ID
+
+| 游戏名称 | App ID |
+|---|---|
+| Wallpaper Engine | `431960` |
+| Counter-Strike 2 (CS2) | `730` |
+| Cities: Skylines | `255710` |
+| Garry's Mod | `4000` |
+| Left 4 Dead 2 | `550` |
+| Rimworld | `294100` |
+
+> 💡 **提示**：您可以在 [SteamDB](https://steamdb.info/) 上搜索任意游戏的 App ID。
 
 ## 🛠️ 开发与构建
 

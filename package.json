@@ -1,7 +1,7 @@
 {
-    "name": "wallpaper-engine-workshop-fix",
-    "version": "1.0.0",
-    "description": "A tool to clean up unsubscribed Wallpaper Engine workshop items.",
+    "name": "steam-workshop-fix",
+    "version": "2.0.0",
+    "description": "A tool to clean up unsubscribed Steam workshop items for any game.",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
@@ -24,7 +24,7 @@
     },
     "build": {
         "appId": "com.workshop.fix",
-        "productName": "Wallpaper Engine Workshop Fix",
+        "productName": "Steam Workshop Fix",
         "directories": {
             "output": "dist"
         },
